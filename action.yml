@@ -2,6 +2,7 @@
 # Brand Boosting GmbH | David Süßlin
 name: 'Create Theme Preview'
 description: 'This is a description'
+shell: bash
 inputs:
   shopify_flag_store:
     description: 'Store URL, like your-store.myshopify.com'
