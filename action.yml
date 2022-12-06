@@ -2,7 +2,6 @@
 # Brand Boosting GmbH | David Süßlin
 name: 'Create Theme Preview'
 description: 'This is a description'
-shell: bash
 inputs:
   shopify_flag_store:
     description: 'Store URL, like your-store.myshopify.com'
@@ -16,10 +15,13 @@ runs:
     - name: Get Date  # Get current date
       id: date
       run: echo "date=$(date +'%d-%m-%Y ')" >> $GITHUB_OUTPUT
+      shell: bash
     - name: Get Time  # Get current time
       id: time
       run: echo "time=$(date +'%H:%M:%S')" >> $GITHUB_OUTPUT
+      shell: bash
     - name: Comment Loading # Create skeleton table and visualize loading state
+      shell: bash
       uses: peter-evans/create-or-update-comment@v2
       with:
         comment-id: ${{ github.event.comment.id }}
@@ -30,25 +32,28 @@ runs:
         
           *created by PotatoBot*
         edit-mode: replace
-    -  # Action checkout@v3
-      uses: actions/checkout@v3
+    - uses: actions/checkout@v3 # Action checkout@v3
+      shell: bash
     - name: Checkout Pull Request # Set the right branch for the commented PR
       run: hub pr checkout ${{ github.event.issue.number }}
       env:
         GITHUB_TOKEN: ${{ github.token }}
-    -  # Action setup-node@v3
-      uses: actions/setup-node@v3
+      shell: bash
+    - uses: actions/setup-node@v3  # Action setup-node@v3
       with:
         node-version: 18
-    -  # Action setup-ruby@v1
-      uses: ruby/setup-ruby@v1
+      shell: bash
+    - uses: ruby/setup-ruby@v1 # Action setup-ruby@v1
       with:
         ruby-version: 3.1
         bundler: 'latest'
+      shell: bash
     - name: Install Shopify CLI 
       run: npm install -g @shopify/cli @shopify/theme
+      shell: bash
     - name: Create Preview Link # and safe the returned value in an output object
       id: link
+      shell: bash
       env:
         # Store URL, like your-store.myshopify.com
         SHOPIFY_FLAG_STORE: ${{ inputs.shopify_flag_store }}
@@ -59,6 +64,7 @@ runs:
         shopify theme push --unpublished --json --development >> $GITHUB_OUTPUT
         echo 'EOF' >> $GITHUB_OUTPUT
     - name: Output Step Failed # Create skeleton table and visualize failed state
+      shell: bash
       if: ${{ failure() }}
       uses: peter-evans/create-or-update-comment@v2
       with:
@@ -82,8 +88,10 @@ runs:
         tail -n1 temp.txt >> $GITHUB_OUTPUT
         echo 'DEL' >> $GITHUB_OUTPUT
       id: temp
+      shell: bash
       name: Format Data
     - name: Comment Link  # Override the loading comment from the start with the actual values and links
+      shell: bash
       uses: peter-evans/create-or-update-comment@v2
       with:
         comment-id: ${{ github.event.comment.id }}
