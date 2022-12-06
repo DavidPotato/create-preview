@@ -1,7 +1,14 @@
 # Github action to create a preview for pullrequests
 # Brand Boosting GmbH | David Süßlin
 name: 'Create Theme Preview'
-description: 'This is a description' 
+description: 'This is a description'
+inputs:
+  shopify_flag_store:
+    description: 'Store URL, like your-store.myshopify.com'
+    required: true
+  shopify_cli_theme_token:
+    description: 'Password generated from Theme Access app'
+    required: true
 runs:                   
   using: "composite"
   steps:
@@ -18,7 +25,7 @@ runs:
         body: |
           | Name | Status | Preview | Editor | Date | Time |
           | :--- | :----- | :------ | :------ | :------ | :----- |
-          | ${{ secrets.SHOPIFY_FLAG_STORE }} | 🔄 Loading |  |  | ${{ steps.date.outputs.date }} | ${{ steps.time.outputs.time }}
+          | ${{ inputs.SHOPIFY_FLAG_STORE }} | 🔄 Loading |  |  | ${{ steps.date.outputs.date }} | ${{ steps.time.outputs.time }}
         
           *created by PotatoBot*
         edit-mode: replace
@@ -27,7 +34,7 @@ runs:
     - name: Checkout Pull Request # Set the right branch for the commented PR
       run: hub pr checkout ${{ github.event.issue.number }}
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ github.token }}
     -  # Action setup-node@v3
       uses: actions/setup-node@v3
       with:
@@ -43,9 +50,9 @@ runs:
       id: link
       env:
         # Store URL, like your-store.myshopify.com
-        SHOPIFY_FLAG_STORE: ${{ secrets.SHOPIFY_FLAG_STORE }}
+        SHOPIFY_FLAG_STORE: ${{ inputs.shopify_flag_store }}
         # Password generated from Theme Access app
-        SHOPIFY_CLI_THEME_TOKEN: ${{ secrets.SHOPIFY_CLI_THEME_TOKEN}}
+        SHOPIFY_CLI_THEME_TOKEN: ${{ inputs.shopify_cli_theme_token}}
       run: |
         echo 'JSON_RESPONSE<<EOF' >> $GITHUB_OUTPUT
         shopify theme push --unpublished --json --development >> $GITHUB_OUTPUT
@@ -58,7 +65,7 @@ runs:
         body: |
           | Name | Status | Preview | Editor | Date | Time |
           | :--- | :----- | :------ | :------ | :------ | :----- |
-          | ${{ secrets.SHOPIFY_FLAG_STORE }} | ❌ Failed |  |  | ${{ steps.date.outputs.date }} | ${{ steps.time.outputs.time }}
+          | ${{ inputs.SHOPIFY_FLAG_STORE }} | ❌ Failed |  |  | ${{ steps.date.outputs.date }} | ${{ steps.time.outputs.time }}
           
           ❌ 'Create Preview Link' fehlgeschlagen ❌
 
@@ -82,7 +89,7 @@ runs:
         body: |
           | Name | Status | Preview | Editor | Date | Time |
           | :--- | :----- | :------ | :------ | :------ | :----- |
-          | ${{ secrets.SHOPIFY_FLAG_STORE }} | ✅ Ready | <a href="${{ fromJSON(steps.temp.outputs.LINK).theme.preview_url }}" target="_blank">Preview</a> | [Editor](${{ fromJSON(steps.temp.outputs.LINK).theme.editor_url }}) | ${{ steps.date.outputs.date }} | ${{ steps.time.outputs.time }}
+          | ${{ inputs.SHOPIFY_FLAG_STORE }} | ✅ Ready | <a href="${{ fromJSON(steps.temp.outputs.LINK).theme.preview_url }}" target="_blank">Preview</a> | [Editor](${{ fromJSON(steps.temp.outputs.LINK).theme.editor_url }}) | ${{ steps.date.outputs.date }} | ${{ steps.time.outputs.time }}
         
           *created by PotatoBot*
         reactions: hooray
