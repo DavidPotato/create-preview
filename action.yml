@@ -69,11 +69,11 @@ runs:
           | :--- | :----- | :------ | :------ | :------ | :----- |
           | ${{ inputs.SHOPIFY_FLAG_STORE }} | ❌ Failed |  |  | ${{ steps.date.outputs.date }} | ${{ steps.time.outputs.time }}
           
-          ❌ 'Create Preview Link' fehlgeschlagen ❌
+          ❌ 'Create Preview Link' failed ❌
 
-          Repository [Secrets](https://docs.github.com/en/actions/security-guides/encrypted-secrets) sind eventuell nicht korrekt definiert:
-            - SHOPIFY_FLAG_STORE => ShopID (your-store.myshopify.com)
-            - SHOPIFY_CLI_THEME_TOKEN => generierter Token aus der [Theme Access App](https://shopify.dev/themes/tools/theme-access)
+          Please check if the following `inputs` are set correctly:
+          - `shopify_cli_theme_token` [?](https://shopify.dev/themes/tools/theme-access)
+          - `shopify_flag_store` 
 
           *created by PotatoBot*
         edit-mode: replace
