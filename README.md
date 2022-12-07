@@ -54,6 +54,5 @@ jobs:
   <div style="float: right;">
     <b>Brand Boosting GmbH</b> |
     <b>David Süßlin</b>
-    <b>[brand-boosting.de](https://brand-boosting.de/)
   </div>
 </div>
