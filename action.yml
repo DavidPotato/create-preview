@@ -21,7 +21,6 @@ runs:
       run: echo "time=$(date +'%H:%M:%S')" >> $GITHUB_OUTPUT
       shell: bash
     - name: Comment Loading # Create skeleton table and visualize loading state
-      shell: bash
       uses: peter-evans/create-or-update-comment@v2
       with:
         comment-id: ${{ github.event.comment.id }}
@@ -33,7 +32,6 @@ runs:
           *created by PotatoBot*
         edit-mode: replace
     - uses: actions/checkout@v3 # Action checkout@v3
-      shell: bash
     - name: Checkout Pull Request # Set the right branch for the commented PR
       run: hub pr checkout ${{ github.event.issue.number }}
       env:
@@ -42,12 +40,10 @@ runs:
     - uses: actions/setup-node@v3  # Action setup-node@v3
       with:
         node-version: 18
-      shell: bash
     - uses: ruby/setup-ruby@v1 # Action setup-ruby@v1
       with:
         ruby-version: 3.1
         bundler: 'latest'
-      shell: bash
     - name: Install Shopify CLI 
       run: npm install -g @shopify/cli @shopify/theme
       shell: bash
@@ -64,7 +60,6 @@ runs:
         shopify theme push --unpublished --json --development >> $GITHUB_OUTPUT
         echo 'EOF' >> $GITHUB_OUTPUT
     - name: Output Step Failed # Create skeleton table and visualize failed state
-      shell: bash
       if: ${{ failure() }}
       uses: peter-evans/create-or-update-comment@v2
       with:
@@ -79,7 +74,7 @@ runs:
           Repository [Secrets](https://docs.github.com/en/actions/security-guides/encrypted-secrets) sind eventuell nicht korrekt definiert:
             - SHOPIFY_FLAG_STORE => ShopID (your-store.myshopify.com)
             - SHOPIFY_CLI_THEME_TOKEN => generierter Token aus der [Theme Access App](https://shopify.dev/themes/tools/theme-access)
-        
+
           *created by PotatoBot*
         edit-mode: replace
     - run: |  # Safe output in a temporary txt file and extract the last line with requested links
@@ -91,7 +86,6 @@ runs:
       shell: bash
       name: Format Data
     - name: Comment Link  # Override the loading comment from the start with the actual values and links
-      shell: bash
       uses: peter-evans/create-or-update-comment@v2
       with:
         comment-id: ${{ github.event.comment.id }}
