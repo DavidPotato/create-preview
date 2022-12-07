@@ -51,7 +51,7 @@ jobs:
 ---
 <div style="display: inline">
   <img width="280" alt="wort-bild-primary@2x" src="https://user-images.githubusercontent.com/77160493/206194969-10dc2ed8-476d-4639-865e-75c9028109a4.png">
-  <div style="float: right;">
+  <div>
     <b>Brand Boosting GmbH</b> |
     <b>David Süßlin</b>
   </div>
