@@ -24,8 +24,7 @@ The action has the following steps:
 ## Example usage
 
 ### Create a preview link and add it to the comment
-The action searches for the `!preview` keyword in a pull request comment and replaces the whole comment with a table that contains a preview and editor link. You can change this keyword to filter for a different string in the pull request comments.
-Dont forget to generate a `shopify_cli_theme_token` for the repository and pass it to the input of this action as well as the `shopify_flag_store`, which is your Store URL. 
+The action searches for the `!preview` keyword in a pull request comment and replaces the entire comment with a table that includes a preview and editor link. The keyword can be changed to filter for a different string in the pull request comments. Remember to generate a `shopify_cli_theme_token` for the repository and pass it to the input of this action, along with the `shopify_flag_store`, which is your store URL.
 
 ```yaml
 run-name: Create Theme Preview by @${{ github.actor }}
