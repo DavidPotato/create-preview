@@ -44,3 +44,5 @@ jobs:
           shopify_flag_store: '*your-store.myshopify.com*'
           shopify_cli_theme_token: '*shopify_cli_theme_token*'
 ```
+
+![image](https://user-images.githubusercontent.com/77160493/206173320-c68ae50a-5afa-48d7-bb70-690612cd1d58.png)
