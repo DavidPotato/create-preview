@@ -48,6 +48,5 @@ jobs:
 > After the action finished loading the table with the preview links should look like this:
 ![image](https://user-images.githubusercontent.com/77160493/206173320-c68ae50a-5afa-48d7-bb70-690612cd1d58.png)
 
-![wort-bild-primary@4x](https://user-images.githubusercontent.com/77160493/206194724-a64d47ea-fde0-43a6-99ce-3a6f0661ab4d.png)
 
 <img width="280" alt="wort-bild-primary@2x" src="https://user-images.githubusercontent.com/77160493/206194969-10dc2ed8-476d-4639-865e-75c9028109a4.png">
