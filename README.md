@@ -50,3 +50,4 @@ jobs:
 
 ![wort-bild-primary@4x](https://user-images.githubusercontent.com/77160493/206194724-a64d47ea-fde0-43a6-99ce-3a6f0661ab4d.png)
 
+<img width="280" alt="wort-bild-primary@2x" src="https://user-images.githubusercontent.com/77160493/206194969-10dc2ed8-476d-4639-865e-75c9028109a4.png">
