@@ -1,8 +1,8 @@
 # Create Theme Preview
 
-This GitHub action creates a preview of a pull request for a Shopify store. 
+This GitHub action creates a preview of a pull request for a Shopify store. It makes it easier to see the changes made in a pull request before they are merged.
 
-It has the following steps:
+The action has the following steps:
 
 1. Get the current date and time
 2. Create a comment on the pull request for the loading state with a table containing the name of the store, the status of the preview creation, and the date and time of the action
@@ -13,7 +13,6 @@ It has the following steps:
 7. Update the table to display the preview links
 8. If any of the previous steps fail, create a comment on the pull request with an error message
 
-This action makes it easier to see the changes made in a pull request before they are merged.
 
 ## Inputs
 | Name | Description | Example |
@@ -24,7 +23,7 @@ This action makes it easier to see the changes made in a pull request before the
 
 ## Example usage
 
-# Create a preview link and add it to the comment
+### Create a preview link and add it to the comment
 The action searches for the `!preview` keyword in a pull request comment and replaces the whole comment with a table that contains a preview and editor link. You can change this keyword to filter for a different string in the pull request comments.
 
 ```yaml
@@ -41,11 +40,13 @@ jobs:
       - name: EXECUTE COMPOSITE ACTION
         uses: DavidPotato/create-preview@v5
         with:
-          shopify_flag_store: '*your-store.myshopify.com*'
-          shopify_cli_theme_token: '*shopify_cli_theme_token*'
+          shopify_flag_store: 'your-store.myshopify.com'
+          shopify_cli_theme_token: 'shopify_cli_theme_token'
 ```
-
-![image](https://user-images.githubusercontent.com/77160493/206173320-c68ae50a-5afa-48d7-bb70-690612cd1d58.png)
-![image](https://user-images.githubusercontent.com/77160493/206173483-d8719966-fb64-4fd5-8ef4-83eb4fce0d02.png)
+Just write a comment like this:
 ![image](https://user-images.githubusercontent.com/77160493/206173680-5e960d83-807d-4205-9d25-b962e6a30091.png)
+
+After the action finished loading the table with the preview links should look like this:
+![image](https://user-images.githubusercontent.com/77160493/206173320-c68ae50a-5afa-48d7-bb70-690612cd1d58.png)
+
 
