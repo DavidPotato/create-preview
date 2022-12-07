@@ -49,7 +49,11 @@ jobs:
 ![image](https://user-images.githubusercontent.com/77160493/206173320-c68ae50a-5afa-48d7-bb70-690612cd1d58.png)
 
 ---
-<div>
-<img width="280" alt="wort-bild-primary@2x" src="https://user-images.githubusercontent.com/77160493/206194969-10dc2ed8-476d-4639-865e-75c9028109a4.png">
-
+<div style="display: inline">
+  <img width="280" alt="wort-bild-primary@2x" src="https://user-images.githubusercontent.com/77160493/206194969-10dc2ed8-476d-4639-865e-75c9028109a4.png">
+  <div style="float: right;">
+    <b>Brand Boosting GmbH</b> |
+    <b>David Süßlin</b>
+    <b>[brand-boosting.de](https://brand-boosting.de/)
+  </div>
 </div>
