@@ -50,3 +50,4 @@ jobs:
 
 
 <img width="280" alt="wort-bild-primary@2x" src="https://user-images.githubusercontent.com/77160493/206194969-10dc2ed8-476d-4639-865e-75c9028109a4.png">
+![shopify_experts](https://user-images.githubusercontent.com/77160493/206196045-40d7643c-134d-420d-afaf-270c0e37c01a.png)
