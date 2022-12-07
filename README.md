@@ -16,17 +16,18 @@ It has the following steps:
 This action makes it easier to see the changes made in a pull request before they are merged.
 
 ## Inputs
-
-- `shopify_flag_store`: Store URL, like `your-store.myshopify.com`
-- `shopify_cli_theme_token`: Password generated from [Theme Access App](https://shopify.dev/themes/tools/theme-access)
+| Name | Description |
+| ---- | ----------- |
+| `shopify_flag_store` | Store URL, like `your-store.myshopify.com` |
+| `shopify_cli_theme_token` | Password generated from [Theme Access App](https://shopify.dev/themes/tools/theme-access) |
 
 
 ## Example usage
 
 # Create a preview link and add it to the comment
-The action searches for the `!preview` keyword in a pull request comment and replaces it with a table that contains a preview and editor link.
+The action searches for the `!preview` keyword in a pull request comment and replaces the whole comment with a table that contains a preview and editor link. You can change this keyword to filter for a different string in the pull request comments.
 
-```
+```yaml
 run-name: Create Theme Preview by @${{ github.actor }}
 on:
   issue_comment:      
