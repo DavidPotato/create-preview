@@ -16,10 +16,10 @@ It has the following steps:
 This action makes it easier to see the changes made in a pull request before they are merged.
 
 ## Inputs
-| Name | Description |
-| ---- | ----------- |
-| `shopify_flag_store` | Store URL, like `your-store.myshopify.com` |
-| `shopify_cli_theme_token` | Password generated from [Theme Access App](https://shopify.dev/themes/tools/theme-access) |
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| `shopify_flag_store` | Your Store URL | `your-store.myshopify.com` | 
+| `shopify_cli_theme_token` | Password generated from [Theme Access App](https://shopify.dev/themes/tools/theme-access) | `shptka_7e95eace43t00be7f9f8612325212805` |
 
 
 ## Example usage
