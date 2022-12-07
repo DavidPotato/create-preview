@@ -72,7 +72,7 @@ runs:
           ❌ 'Create Preview Link' failed ❌
 
           Please check if the following `inputs` are set correctly:
-          - `shopify_cli_theme_token` [(help)](https://shopify.dev/themes/tools/theme-access)
+          - `shopify_cli_theme_token` [(?)](https://shopify.dev/themes/tools/theme-access)
           - `shopify_flag_store` 
 
           *created by PotatoBot*
